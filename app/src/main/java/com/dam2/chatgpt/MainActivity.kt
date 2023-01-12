@@ -16,22 +16,28 @@ class MainActivity : AppCompatActivity() {
         var enviar: Button = findViewById(R.id.start)
         enviar.setOnClickListener {
             val intento1 = Intent(this, SecondActivity::class.java)
+            // Añade datos adicionales al Intent
             intento1.putExtra("EXTRA_MESSAGE", 8)
+            // Inicia la segunda actividad
             startActivityForResult(intento1, REQUEST_EXTRA_MESSAGE)
             startActivityForResult(intento1, REQUEST_PERMISSION)
             startActivityForResult(intento1, REQUEST_TO_POST)
         }
     }
-
+    // recoje el intent cuando hacemos setResult() en la SecondActivity
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        // Definimos el text view para mostrar el dato que nos manda la Second
         val textView1 = findViewById<TextView>(R.id.texto)
         val textView2 = findViewById<TextView>(R.id.texto3)
         val textView3 = findViewById<TextView>(R.id.texto4)
+        // Comprueba que el resultado es OK
         if (resultCode != Activity.RESULT_OK) return
         Log.d("asd", requestCode.toString())
+        // Puedo distinguir diferentes acciones según el requestCode
         when (requestCode) {
             REQUEST_EXTRA_MESSAGE -> {
+                // si el intent no es null muestro el resultado
                 if (data != null) {
                     Log.d("asd", "recibido")
                     textView1.text = data.getStringExtra("saludo")
