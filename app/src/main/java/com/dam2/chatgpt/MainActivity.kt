@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
             val intento1 = Intent(this, SecondActivity::class.java)
             // Añade datos adicionales al Intent
             intento1.putExtra("EXTRA_MESSAGE", 8)
+            intento1.putExtra("EXTRA_MESSAGE1", 7)
             // Inicia la segunda actividad
             startActivityForResult(intento1, REQUEST_EXTRA_MESSAGE)
             startActivityForResult(intento1, REQUEST_PERMISSION)
@@ -40,18 +41,18 @@ class MainActivity : AppCompatActivity() {
                 // si el intent no es null muestro el resultado
                 if (data != null) {
                     Log.d("asd", "recibido")
-                    textView1.text = data.getStringExtra("saludo")
+                    textView1.text = data.getIntExtra("suma",0).toString()
                 }; }
             REQUEST_PERMISSION -> {
                 if (data != null) {
                     Log.d("asd", "recibido")
-                    textView2.text = data.getStringExtra("despedida")
+                    textView2.text = data.getIntExtra("resta",0).toString()
                 }; }
 
             REQUEST_TO_POST -> {
                 if (data != null) {
                     Log.d("asd", "recibido")
-                    textView3.text = data.getStringExtra("despedida2")
+                    textView3.text = data.getIntExtra("multi",0).toString()
                 }; }
 
         }

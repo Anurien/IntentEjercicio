@@ -16,7 +16,7 @@ class SecondActivity : AppCompatActivity() {
         // Recoge el Intent que ha iniciado la actividad
         val intent = intent
         // Get the Intent that started this activity and extract the string
-        val message = intent.getIntExtra("REQUEST_EXTRA_MESSAGE", 7)
+        val message = intent.getIntExtra("EXTRA_MESSAGE", 7)
 
         // Capture the layout's TextView and set the string as its text
         val textView = findViewById<TextView>(R.id.texto2)
@@ -26,9 +26,9 @@ class SecondActivity : AppCompatActivity() {
         val botonsalir = findViewById<Button>(R.id.start2)
         botonsalir.setOnClickListener {
             //val intento2 = Intent(this, SecondActivity::class.java)
-            intent.putExtra("saludo", "Hola")
-            intent.putExtra("despedida", "adios")
-            intent.putExtra("despedida2", "chao")
+            val num1 = intent.getIntExtra("EXTRA_MESSAGE", 5)
+            val num2 = intent.getIntExtra("EXTRA_MESSAGE1", 5)
+            intent.putExtra("suma", num1 + num2)
             Log.d("mensaje", "actualizado")
             /* startActivity(intento2)*/
             setResult(Activity.RESULT_OK, intent)
@@ -38,7 +38,9 @@ class SecondActivity : AppCompatActivity() {
         botonsalir1.setOnClickListener {
             //val intento2 = Intent(this, SecondActivity::class.java)
             // Meto un nuevo dato en el intent
-            intent.putExtra("despedida", "adios")
+            val num1 = intent.getIntExtra("EXTRA_MESSAGE", 5)
+            val num2 = intent.getIntExtra("EXTRA_MESSAGE1", 5)
+            intent.putExtra("resta", num1 - num2)
             Log.d("mensaje", "actualizado")
             /* startActivity(intento2)*/
             // Configuro el result para que la Main lo tenga disponible
@@ -51,10 +53,12 @@ class SecondActivity : AppCompatActivity() {
         }
         val botonsalir2 = findViewById<Button>(R.id.start4)
         botonsalir2.setOnClickListener {
-            //val intento2 = Intent(this, SecondActivity::class.java)
-            intent.putExtra("despedida2", "chao")
+
+            val num1 = intent.getIntExtra("EXTRA_MESSAGE", 5)
+            val num2 = intent.getIntExtra("EXTRA_MESSAGE1", 5)
+            intent.putExtra("multi", num1 * num2)
             Log.d("mensaje", "actualizado")
-            /* startActivity(intento2)*/
+
             setResult(Activity.RESULT_OK, intent)
             finish()
         }

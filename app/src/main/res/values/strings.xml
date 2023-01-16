@@ -2,4 +2,7 @@
     <string name="app_name">ChatGPT</string>
     <string name="pulsar">Pulsar</string>
     <string name="salir">salir</string>
+    <string name="Suma" >Suma</string>
+    <string name="Resta" >Resta</string>
+    <string name="Multiplicar" >Multiplicar</string>
 </resources>
