@@ -5,4 +5,5 @@
     <string name="Suma" >Suma</string>
     <string name="Resta" >Resta</string>
     <string name="Multiplicar" >Multiplicar</string>
+    <string name="Llamar">Llamar</string>
 </resources>
