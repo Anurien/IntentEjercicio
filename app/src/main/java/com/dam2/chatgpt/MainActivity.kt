@@ -18,12 +18,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val enviar: Button = findViewById(R.id.start)
         val textView = findViewById<TextView>(R.id.texto)
-        val phoneNumber = "123456789"
-        textView.text = phoneNumber
+        val url = "https://github.com/GorillaGrip/IntentEjercicio"
+        textView.text = url
         enviar.setOnClickListener {
-            val intent = Intent(Intent.ACTION_DIAL).apply {
-                data = Uri.parse("tel:$phoneNumber")
-            }
+            val webpage: Uri = Uri.parse(url)
+            val intent = Intent(Intent.ACTION_VIEW, webpage)
             if (intent.resolveActivity(packageManager) != null) {
                 startActivity(intent)
             }

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Llamar">Llamar</string>
+    <string name="Ir">Ir</string>
 </resources>
