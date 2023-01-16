@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             if (intent.resolveActivity(packageManager) != null) {
                 startActivity(intent)
             }
+            
         }
     }
 }
